@@ -1,0 +1,341 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontello-6a6758b7/css/fontello.css" type="text/css">
+    <meta name="description" content="Hej! Mam na imię Bartek, na mojej stronie znajdziesz ciekawe informacje o mnie jak i o moich doświadczeniach z programowaniem">
+    <meta name="keywords" content="Bartek,portfolio,IT,js,php,css,html,jQuery,oraz inne">
+    <meta name="shortcout icon" href="#"><!-- zrobic logo-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="fontello-8fdb0c93/css/fontello.css" type="text/css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Condensed', sans-serif;
+            scroll-behavior: smooth;
+
+
+        }
+
+
+
+        body {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+        }
+
+        .burger {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 60px;
+            height: 45px;
+            transition: .2s;
+            cursor: pointer;
+
+        }
+
+        .burger.active {
+            transform: rotate(-90deg);
+
+        }
+
+
+        .burger span {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background-color: black;
+            left: 0;
+            transition: top .2s .2s, bottom .2s .2s, opacity .2s .2s, transform .2s .4s;
+
+        }
+
+        .burger span:nth-child(1) {
+            top: 0
+        }
+
+        .burger.active span:nth-child(1) {
+            top: calc(50% - 5px);
+            transform: rotate(45deg);
+        }
+
+        .burger span:nth-child(2) {
+            top: calc(50% - 5px);
+        }
+
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger span:nth-child(3) {
+            bottom: 0;
+        }
+
+        .burger.active span:nth-child(3) {
+            bottom: calc(50% - 5px);
+            transform: rotate(-45deg);
+        }
+
+        .nav {
+            display: none;
+            height: 100vh;
+            width: 15vw;
+            background-color: #3652f5;
+            text-align: center;
+            font-size: auto;
+            position: absolute;
+            z-index: 1;
+        }
+
+        ul,
+        ul li {
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-top: 20%;
+        }
+
+        ul li {
+
+            font-size: 32px;
+
+            margin-bottom: 30px;
+        }
+
+        i {
+            margin-bottom: 30px;
+            color: white;
+            cursor: pointer;
+
+        }
+
+        .icon-home {
+            margin-top: 30px;
+
+
+        }
+
+        .nav.show {
+            display: block;
+            animation: fadeInLeft .5s linear;
+            width: 15vw;
+
+        }
+
+        .nav.hide {
+            display: block;
+            opacity: 0;
+            animation: fadeOutLeft 1s linear;
+            width: 15vw;
+        }
+
+        @keyframes fadeOutLeft {
+            0% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateX(-15vw);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+
+        li:hover {
+            animation: pulse .5s linear;
+            font-size: 2rem;
+
+        }
+
+        i:hover {
+            color: black;
+        }
+
+        .homeSection {
+            height: 100vh;
+            width: 100vw;
+            background-color: white;
+            z-index: -3;
+        }
+
+        h1 {
+            position: absolute;
+            top: 12.5%;
+            left: 20%;
+            font-size: 3rem;
+        }
+
+        .motto {
+            background-color: #3652f5;
+            color: white;
+        }
+
+        .describe {
+            top: 22.5%;
+            left: 20%;
+            position: absolute;
+            justify-content: center;
+            width: 45vw;
+        }
+
+
+        #aboutMe {
+            height: 100vh;
+            width: 100vw;
+            background-color: white;
+
+        }
+
+        .aboutMehtwo {
+            top: 10%;
+            left: 10%;
+            position: relative;
+            font-size: 2rem;
+        }
+
+        .spanDescirbe {
+            background-color: #3652f5;
+            color: white;
+        }
+
+        #aboutMe p {
+            top: 12.5%;
+            left: 10%;
+            position: relative;
+            justify-content: center;
+
+        }
+
+        .cards {
+            height: 75vh;
+            width: 100vw;
+
+            top: 15%;
+            position: relative;
+        }
+
+        .cardHtml {
+            position: relative;
+            height: 450px;
+            width: 300px;
+            left: 10vw;
+            top: 10%;
+            text-align: center;
+            justify-content: center;
+
+
+        }
+
+        .cardCSS3 {
+            position: relative;
+            height: 450px;
+            width: 300px;
+            left: 10vw;
+            top: 10%;
+            text-align: center;
+            justify-content: center;
+
+
+        }
+
+
+        .icon-html5 {
+            color: black;
+
+            font-size: 4rem;
+
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="#aboutMe">
+                    <i class="icon-home"></i>
+                </a></li>
+            <li><i class='icon-user'></i></li>
+            <li><i class='icon-facebook'></i></li>
+            <li><i class='icon-twitter'></i></li>
+            <li><i class='icon-linkedin'></i></li>
+        </ul>
+    </nav>
+
+
+
+    <section class="homeSection">
+        <h1 data-aos="fade-up" data-aos-duration="1250">Cześć tu Bartek!</h1>
+
+
+
+
+
+    </section>
+
+
+
+    <section id="aboutMe">
+        <h2 data-aos="fade-right" data-aos-duration="1600" class="aboutMehtwo">Kilka słów o <span class="spanDescirbe"> mnie</span></h2>
+        <p data-aos="fade-up" data-aos-duration="2000">
+            <p class="describe" data-aos="fade-up" data-aos-duration="1450">Jestem uczniem 4 klasy technikum informatycznego.Od małego polubiłem sie z komputerem często sam wykonywałem drobne naprawy.
+                Lubię programować w różnych językach jednak najlepiej odnajduje się w językach front-endowych JS,CSS,HTML5 oraz inne.
+                Interesuję sie astronomią moim mottem jest łacińskie powiedzenie<br /> <span class="motto">per aspera ad astra</span>.
+
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+    <script>
+        AOS.init();
+
+    </script>
+    <script src="script.js">
+    </script>
+</body>
+
+</html>
